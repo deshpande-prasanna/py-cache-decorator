@@ -1,12 +1,12 @@
 import functools
-from typing import Callable
+from typing import Callable, Any
 
 
 def cache(func: Callable) -> Callable:
     result_kwargs = {}
 
     @functools.wraps(func)
-    def wrapper(*args):
+    def wrapper(*args) -> Any:
         if isinstance(args, (list, dict)):
             pass
         else:
